@@ -1,0 +1,13 @@
+Place .j2 templates in this directory, to make them automatically publicly availabe in the application through
+the URL without .j2 extension, for example:
+
+index.html.j2 (already existing) is available as http://localhost:5000/
+
+bla.html.j2 becomes available as http://localhost:5000/bla.html
+
+subdir/index.html.j2 becomes available as http://localhost:5000/subdir/
+
+subdir/blie.html.j2 becomse available as http://localhost:5000/subdir/blie.html
+
+
+Templates not resembling pages, like layout, includes etc should be placed in the other `templates' directory.

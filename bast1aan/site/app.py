@@ -11,7 +11,7 @@ package_path = Path(os.path.dirname(__file__))
 
 _system_template_dir = os.path.abspath(package_path / '..' / '..' / 'templates')
 
-_system_public_template_dir = os.path.abspath(package_path / '..' / '..' / 'document_root')
+_system_public_template_dir = os.path.abspath(package_path / '..' / '..' / 'public_j2')
 
 _extra_template_dirs: list[str] = []
 
