@@ -13,6 +13,8 @@ _system_template_dir = os.path.abspath(package_path / '..' / '..' / 'templates')
 
 _system_public_template_dir = os.path.abspath(package_path / '..' / '..' / 'public_j2')
 
+_static_dir = os.path.abspath(package_path / '..' / '..' / 'static')
+
 _extra_template_dirs: list[str] = []
 
 _extra_public_template_dirs: list[str] = []
@@ -36,7 +38,7 @@ class App(Flask):
 		))
 		return super().create_jinja_environment()
 
-app = App(__name__)
+app = App(__name__, static_folder=_static_dir)
 
 app.add_url_rule('/', view_func=views.template_view, defaults={'path': '/'})
 app.add_url_rule('/<path:path>', view_func=views.template_view)
