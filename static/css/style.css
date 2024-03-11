@@ -1,18 +1,26 @@
 nav {
 	margin: 0 auto;
+	font-size: 110%;
+	
 }
 
 nav ul {
 	list-style: none;
+	padding: 0 1em 0 1em;
+	border-radius: 0.8em;
+	background-color: #ccc;
+	position: relative;
+	height: 1.5em;
+
 }
 nav ul li {
 	text-align: center;
-	padding: 5px;
+	padding: 0 5px 0 5px;
 	float: left;
 	position: relative;
 	z-index: 5;
-	background-color: #ccc;
-	width: 250px;
+	width: calc(20% - 10px);
+	display: block;
 }
 
 /*nav ul li a {
@@ -28,13 +36,22 @@ nav ul li ul { display: none; }
 
 nav ul li:hover ul
 {
+	border-radius: 0 0 0.8em 0.8em;
 	padding: 0;
 	display: block;
 	position: absolute;
-	top: 1.5em;
+	top: calc(1.5em - 1px);
 	left: 0;
 	overflow: hidden;
-	width: 250px;
+	width: 100%;
+	height: auto;
+}
+
+nav ul li:hover ul li
+{
+	overflow: hidden;
+	width: 100%;
+	height: 1.5em;
 }
 
 
