@@ -2,5 +2,6 @@ services:
   bast1aan-site:
     build:
       dockerfile: Dockerfile
+    image: bast1aan-site
     ports:
       - 127.0.0.1:5000:5000

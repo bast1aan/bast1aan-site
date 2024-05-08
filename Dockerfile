@@ -13,4 +13,6 @@ WORKDIR /srv/bast1aan-site
 
 USER bast1aan
 
+ENV GUNICORN_APP=bast1aan.site.app:app
+
 ENTRYPOINT ./entrypoint.sh
