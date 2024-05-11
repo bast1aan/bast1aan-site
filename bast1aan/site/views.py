@@ -33,7 +33,7 @@ def _get_view_func(template: str) -> Callable[[], dict]:
 		if exists(Path(pubdir) / template) and (root_module := app.get_module(pubdir)):
 			try:
 				page_module = importlib.import_module('.' + template[:-8].replace('/', '.'),  package=root_module.__name__)
-				if view := getattr(page_module, 'view'):
+				if view := getattr(page_module, 'view', None):
 					return view
 			except ImportError:
 				pass
