@@ -3,4 +3,10 @@
 {% block content %}
 <h1>Index</h1>
 <p>Welcome</p>
+<h2>tags:</h2>
+<ul>
+	{%  for tag in tags %}
+	<li>{{ tag.value }}</li>
+	{%  endfor %}
+</ul>
 {% endblock %}
