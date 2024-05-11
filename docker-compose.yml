@@ -5,3 +5,13 @@ services:
     image: bast1aan-site
     ports:
       - 127.0.0.1:5000:5000
+  bast1aan-site-tests:
+    build:
+      dockerfile: tests/bast1aan/site/Dockerfile
+    image: bast1aan-site-tests
+    ports:
+      - 127.0.0.1:5001:5000
+    entrypoint: []  # no gunicorn
+    command: python -munittest discover tests/bast1aan/site
+
+
