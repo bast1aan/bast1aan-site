@@ -15,9 +15,12 @@ class TestIndex(unittest.TestCase):
 	def test_index(self):
 		client: FlaskClient = app.test_client()
 		result: Response = client.get('/')
-		with open(os.path.join(os.path.dirname(__file__), 'test_index.html'), 'r') as f:
-			self.assertHTMLEqual(result.data, f.read())
+		self.assertHTMLEqual(result.data, _read('test_index.html'))
 
 
 def _bs(inp: str) -> str:
 	return bs4.BeautifulSoup(inp, features="html.parser").prettify()
+
+def _read(filename: str) -> str:
+	with open(os.path.join(os.path.dirname(__file__), filename), 'r') as f:
+		return f.read()
