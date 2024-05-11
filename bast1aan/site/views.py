@@ -31,7 +31,10 @@ def _is_public_template(template: str) -> bool:
 def _get_view_func(template: str) -> Callable[[], dict]:
 	for pubdir in app.public_template_dirs():
 		if exists(Path(pubdir) / template) and (root_module := app.get_module(pubdir)):
-			page_module = importlib.import_module('.' + template[:-8].replace('/', '.'),  package=root_module.__name__)
-			if view := getattr(page_module, 'view'):
-				return view
+			try:
+				page_module = importlib.import_module('.' + template[:-8].replace('/', '.'),  package=root_module.__name__)
+				if view := getattr(page_module, 'view'):
+					return view
+			except ImportError:
+				pass
 	return lambda: {}
