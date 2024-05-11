@@ -7,6 +7,7 @@ import bs4
 
 
 class SiteTestCase(unittest.TestCase, metaclass=ABCMeta):
+	maxDiff = None
 	def assertHTMLEqual(self, a: str, b: str, msg=None) -> None:
 		self.assertEqual(_bs(a), _bs(b), msg)
 
